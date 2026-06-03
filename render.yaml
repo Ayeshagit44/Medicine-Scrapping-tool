@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: medicine-scrapping-tool
+    env: python
+
+    buildCommand: |
+      pip install -r requirements.txt
+      python -m playwright install chromium
+
+    startCommand: gunicorn 1mg:app --timeout 300
